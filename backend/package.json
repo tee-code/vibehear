@@ -1,0 +1,36 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "api",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app-server.js",
+        "test": "",
+        "test-watch": ""
+    },
+    "author": "Odekunle Oluwatobi Alao | TheAnonymousDeveloper",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "crypto-js": "^3.1.9-1",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.16.2",
+        "jsonwebtoken": "^8.5.1",
+        "lodash": "^4.17.15",
+        "mongodb": "^3.3.0-beta2",
+        "mongoose": "^5.6.8",
+        "passport": "^0.4.0",
+        "serve-static": "^1.14.1",
+        "validator": "^11.1.0"
+    },
+    "devDependencies": {
+        "expect": "^24.8.0",
+        "mocha": "^6.2.0",
+        "rewire": "^4.0.1",
+        "supertest": "^4.0.2"
+    }
+}

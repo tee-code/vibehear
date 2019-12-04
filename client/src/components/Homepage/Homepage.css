@@ -1,0 +1,12 @@
+.card-container,
+.app-card {
+    background: none !important;
+}
+
+.carousel-inner div.carousel-item p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-stretch: expanded;
+    word-spacing: 0.2rem;
+    font-style: italic;
+}

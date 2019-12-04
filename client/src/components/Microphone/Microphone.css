@@ -1,0 +1,21 @@
+span.icon {
+    font-size: 200px;
+    color: #f3f3f3;
+    animation: move 2s linear 2s infinite alternate;
+    cursor: pointer !important;
+}
+
+@keyframes move {
+    from {
+        font-size: 30px;
+    }
+    to {
+        font-size: 200px;
+    }
+}
+
+.m-container {
+    margin: auto 0;
+    padding: 100px;
+    cursor: pointer;
+}
