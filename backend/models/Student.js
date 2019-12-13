@@ -80,7 +80,7 @@ const StudentSchema = new Schema({
 StudentSchema.methods.toJSON = function(){
     const student = this;
     const StudentObject = student.toObject();
-    return _.pick(StudentObject,['_id','dateJoined','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','matricNumber','level']);
+    return _.pick(StudentObject,['_id','dateJoined','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','matricNumber','level','tokens']);
 }
 
 //method to generate token using jsonwebtoken library

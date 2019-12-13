@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from "axios"
 import { BASE_URL } from "./Config.js"
 import Request from './Request/Request'
-import { Redirect } from "react-router-dom"
 
 const Context = React.createContext();
 
@@ -12,7 +11,11 @@ const reducer = ( state, action ) => {
 
     switch(type){
         case "LOGIN_USER":
-            localStorage.setItem('VIBEHEAR-ACCESS-TOKEN', payload)
+            if (payload.userType === "1"){
+                localStorage.setItem('l-token',JSON.stringify(payload.data))
+            }else{
+                localStorage.setItem('s-token',JSON.stringify(payload.data))
+            }
         case "REGISTER_STUDENT":
             return {
                 ...state,
@@ -43,13 +46,6 @@ export class Provider extends Component {
         
     }
 
-    isAuthenticated = () => {
-        if(localStorage.getItem('token')){
-            this.setState({ isAuthenticated: true})
-        }else{
-            this.setState({ isAuthenticated: false })
-        }
-    }
 
     fetchAllAdmins = async () => {
 
@@ -81,7 +77,6 @@ export class Provider extends Component {
     componentDidMount(){
 
         setInterval(() => {
-            this.isAuthenticated()
             this.fetchAllAdmins();
             this.fetchAllLecturers();
             this.fetchAllStudents();
@@ -91,11 +86,12 @@ export class Provider extends Component {
     }
     
     render() {
-        
+              
         return (
             <Context.Provider value = {this.state}>
-                { !this.state.isAuthenticated ? <Redirect to = "/login" /> : null }
+                
                 { this.props.children }
+
             </Context.Provider>
         )
     }

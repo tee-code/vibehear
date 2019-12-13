@@ -6,7 +6,7 @@ import "./Header.css"
 const Header = (props) => {
   
   const { branding } = props;
-
+  
   return (
 	<nav 
 		className="app-navbar navbar navbar-expand-lg navbar-dark static-top mb-5 shadow">

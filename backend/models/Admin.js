@@ -90,7 +90,7 @@ AdminSchema.methods.toJSON = function(){
     const admin = this;
     const AdminObject = admin.toObject();
 
-    return _.pick(AdminObject,['_id','dateAdded','addedBy','status','role','email','username','phoneNumber','firstName','lastName','otherName','password','notifications']);
+    return _.pick(AdminObject,['_id','dateAdded','addedBy','status','role','email','username','phoneNumber','firstName','lastName','otherName','password','notifications', 'tokens']);
 }
 
 //method to generate token using jsonwebtoken library

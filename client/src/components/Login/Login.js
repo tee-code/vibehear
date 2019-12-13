@@ -16,7 +16,8 @@ export default class Login extends Component {
       password: "",
       loginFailed: false,
       errors: {},
-      errorMessage: ""
+      errorMessage: "",
+      data: {}
   }
 
   onChangeHandler = (e) => {
@@ -32,13 +33,14 @@ export default class Login extends Component {
     },5000)
   }
 
-  login = async (user,bodyMessage) => {
+  login = async (user,bodyMessage, dispatch) => {
 
     try {
         const res = await axios.post(`${BASE_URL}/login/${user}`, bodyMessage)
-        this.setState({ loginFailed: false })
-        console.log(res)
-        return res;
+        this.setState({ loginFailed: false, data: res.data })
+        const { userType } = this.state;
+        const action = { type: "LOGIN_USER", payload: { data: res.data, userType } }
+        dispatch(action)
 
     } catch (e) {
         this.setState({ loginFailed: true, errorMessage: "Invalid Credentials" })
@@ -89,8 +91,8 @@ export default class Login extends Component {
         user = "Student"
     }
 
-    const { data } = this.login(user,{ email, password })
-    dispatch()
+    this.login(user,{ email, password }, dispatch)
+    
 
     //clear state
     this.setState({

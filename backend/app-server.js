@@ -57,19 +57,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors())
+app.use(express.static(path.join(__dirname, "../client/build")));
+/*React root*/
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "../client/build/index.html"));
+});
+
 app.use(function(req, res, next) {
     
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+    });
+    app.options("*", cors());
+
 
 //LOGIN user
-app.post('/login/:user', (request,response, next) => {
+app.post('/login/:user', (request,response) => {
     
     const body = ['email','password'];
     const type = request.params.user;
-    authenticate(request,response,next,type);
     login(request,response,body,type);
 
 })

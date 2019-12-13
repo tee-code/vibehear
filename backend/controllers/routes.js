@@ -47,7 +47,7 @@ const login = (req,res,body,type) => {
           res.header('x-auth',token).send(user);
        });
     }).catch((e) => {
-        console.log('h',e)
+        
         res.status(400).send();
     })
 }

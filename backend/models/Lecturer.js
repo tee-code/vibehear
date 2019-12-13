@@ -94,7 +94,7 @@ const LecturerSchema = new Schema({
 LecturerSchema.methods.toJSON = function(){
     const Lecturer = this;
     const LecturerObject = Lecturer.toObject();
-    return _.pick(LecturerObject,['_id','dateJoined','username','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','lecturerID']);
+    return _.pick(LecturerObject,['_id','dateJoined','username','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','lecturerID','tokens']);
 }
 
 //method to generate token using jsonwebtoken library
