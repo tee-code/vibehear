@@ -33,8 +33,24 @@ const {
     getCourses, 
     patchCourseByID, 
     deleteAllCourses, 
+    getCoursesWithLecturerDetails,
     deleteCourseByID } = require('./routes/Course');
 
+const { 
+    postFaculty, 
+    getFacultyByID, 
+    getFaculties, 
+    patchFacultyByID, 
+    deleteAllFaculties, 
+    deleteFacultyByID } = require('./routes/Faculty');
+
+const { 
+    postDepartment, 
+    getDepartmentByID, 
+    getDepartments, 
+    patchDepartmentByID, 
+    deleteAllDepartments, 
+    deleteDepartmentByID } = require('./routes/Department');
 const { 
     postMessage, 
     getMessageByID, 
@@ -57,11 +73,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors())
-app.use(express.static(path.join(__dirname, "../client/build")));
-/*React root*/
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "../client/build/index.html"));
-});
+
 
 app.use(function(req, res, next) {
     
@@ -106,7 +118,6 @@ app.patch('/admins/:id', patchAdminByID);
 app.delete('/admins',deleteAllAdmins);
 app.delete('/admins/:id',deleteAdminByID);
 
-
 //Student Routes
 app.post('/students', postStudent);
 app.get('/students',getStudents);
@@ -126,10 +137,12 @@ app.delete('/lecturers/:id',deleteLecturerByID);
 //Course Routes
 app.post('/courses', postCourse);
 app.get('/courses',getCourses);
+app.get('/courseswithlecturer',getCoursesWithLecturerDetails);
 app.get('/courses/:id',getCourseByID);
 app.patch('/courses/:id',patchCourseByID);
 app.delete('/courses', deleteAllCourses);
 app.delete('/courses/:id',deleteCourseByID);
+
 
 //Message Routes
 app.post('/messages', postMessage);
@@ -146,6 +159,22 @@ app.get('/notifications/:id',getNotificationByID);
 app.patch('/notifications/:id',patchNotificationByID);
 app.delete('/notifications', deleteAllNotifications);
 app.delete('/notifications/:id',deleteNotificationByID);
+
+//Faculty Routes
+app.post('/faculties', postFaculty);
+app.get('/faculties',getFaculties);
+app.get('/faculties/:id',getFacultyByID);
+app.patch('/faculties/:id',patchFacultyByID);
+app.delete('/faculties', deleteAllFaculties);
+app.delete('/faculties/:id',deleteFacultyByID);
+
+//Department Routes
+app.post('/departments', postDepartment);
+app.get('/departments',getDepartments);
+app.get('/departments/:id',getDepartmentByID);
+app.patch('/departments/:id',patchDepartmentByID);
+app.delete('/departments', deleteAllDepartments);
+app.delete('/departments/:id',deleteDepartmentByID);
 
 
 const PORT = 4000;

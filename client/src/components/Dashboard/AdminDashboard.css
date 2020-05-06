@@ -1,3 +1,26 @@
+#admin,
+#student,
+#lecturer {
+    overflow: scroll !important;
+    position: relative;
+}
+
+button.classroom {
+    float: right;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+button.addNew {
+    cursor: pointer;
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    background-color: #6A0E3B;
+    border-radius: 100%;
+}
+
 #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
@@ -17,11 +40,53 @@
 }
 
 #page-content-wrapper {
-    min-width: 100vw;
+    width: 100vw;
 }
 
 #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
+}
+
+li.notification {
+    position: fixed;
+    top: 3%;
+    right: 50%;
+    list-style: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+li.notification i {
+    position: relative;
+    font-size: 1.5rem;
+    color: orangered;
+    cursor: pointer;
+    transform: rotate(20deg);
+    animation: shake 1s forwards ease-in-out infinite;
+    z-index: 99;
+}
+
+li.notification i+span {
+    cursor: pointer;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    z-index: 100;
+    color: white;
+    animation: notify 1s forwards ease-in-out infinite;
+}
+
+@keyframes notify {
+    to {
+        top: 60%;
+        left: 60%;
+    }
+}
+
+@keyframes shake {
+    to {
+        transform: rotate(60deg);
+    }
 }
 
 @media (min-width: 768px) {

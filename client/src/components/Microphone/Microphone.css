@@ -1,8 +1,24 @@
 span.icon {
     font-size: 200px;
     color: #f3f3f3;
-    animation: move 2s linear 2s infinite alternate;
     cursor: pointer !important;
+}
+
+span.animate2 {
+    animation: shake 2s linear 2s infinite alternate;
+}
+
+span.animate {
+    animation: move 2s linear 2s infinite alternate;
+}
+
+@keyframes shake {
+    from {
+        transform: skewX(0);
+    }
+    to {
+        transform: skewX(10deg)
+    }
 }
 
 @keyframes move {
@@ -15,7 +31,8 @@ span.icon {
 }
 
 .m-container {
-    margin: auto 0;
+    margin: -4rem 2rem 0 0;
     padding: 100px;
     cursor: pointer;
+    position: relative;
 }

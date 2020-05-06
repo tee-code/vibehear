@@ -4,8 +4,10 @@ export default function Footer() {
   return (
     <>
         <footer className = "app-footer container-fluid">
-            <p className = "text-white">
-                &copy; Copyright {new Date().getFullYear()} Odekunle Oluwatobi Alao
+            <p 
+                style = {{ color: "#E8F0FE" }}
+                className = "">
+                &copy; Copyright {new Date().getFullYear()} VibeHear
             </p>
         </footer>
     </>

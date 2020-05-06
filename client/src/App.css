@@ -14,8 +14,8 @@ span.v-logo {
 }
 
 .wrapper {
-    background: red;
-    position: absolute;
+    background: blue;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100vw;
@@ -26,8 +26,66 @@ span.v-logo {
 }
 
 .app-footer {
-    position: absolute;
-    left: 0;
+    color: white;
+    margin-top: 10px;
+    position: fixed;
     bottom: 0;
-    color: grey;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #002B36;
+    border-radius: 50px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #002B36;
+}
+
+
+/* width */
+
+::-moz-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-moz-scrollbar-track {
+    background: #f1f1f1;
+}
+
+
+/* Handle */
+
+::-moz-scrollbar-thumb {
+    background: #002B36;
+    border-radius: 50px;
+}
+
+
+/* Handle on hover */
+
+::-moz-scrollbar-thumb:hover {
+    background: #002B36;
 }

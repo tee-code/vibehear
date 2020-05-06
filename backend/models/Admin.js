@@ -3,6 +3,7 @@ const Schema  = mongoose.Schema;
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
+const bcrypt = require('bcryptjs')
 
 //Admin model
 const AdminSchema = new Schema({
@@ -19,26 +20,19 @@ const AdminSchema = new Schema({
     },
     firstName: {
         type: String,
-        trim: true,
-        minlength: 1,
-        required: true,
+        trim: true
     },
     lastName: {
         type: String,
-        trim: true,
-        minlength: 1,
-        required: true,
+        trim: true
     },
     otherName: {
         type: String,
-        trim: true,
-        minlength: 1,
+        trim: true
     },
     phoneNumber: {
         type: String,
-        trim: true,
-        minlength: 10,
-        required: true,
+        trim: true
     },
     password: {
         type: String,
@@ -48,10 +42,7 @@ const AdminSchema = new Schema({
     },
     username: {
         type: String,
-        trim: true,
-        minlength: 5,
-        required: true,
-        unique: true
+        trim: true
     },
     role: {
         type: String,
@@ -60,8 +51,7 @@ const AdminSchema = new Schema({
     },
     status: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     addedBy: {
         type: String,

@@ -3,3 +3,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
 }
+
+.active-link {
+    border-bottom: 2px ridge white;
+    border-radius: 50%;
+    padding: 10px;
+}

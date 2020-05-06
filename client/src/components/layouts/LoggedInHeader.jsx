@@ -5,7 +5,22 @@ import { Link } from "react-router-dom"
 const LoggedInHeader = (props) => {
   
   const { branding, username } = props;
+  
+  const logout = () => {
 
+	  if(localStorage.getItem('s-token')){
+		localStorage.removeItem('s-token')
+	  }
+
+	  if(localStorage.getItem('a-token')){
+		localStorage.removeItem('a-token')
+	  }
+
+	  if(localStorage.getItem('l-token')){
+		localStorage.removeItem('l-token')
+	  }
+	  
+  }
 
   return (
 	<nav 
@@ -25,17 +40,21 @@ const LoggedInHeader = (props) => {
 			<div className="collapse navbar-collapse" id="navbarResponsive">
 			<ul className="navbar-nav ml-auto">
 				<li className="nav-item active">
-                    <Link to = "/home"><a className="nav-link" href="#">Home
-                        <span className="sr-only">(current)</span>
-                    </a>
+                    <Link className="nav-link" to = "/home">
+						Home
+                        	<span className="sr-only">(current)</span>
+                        
                     </Link>
 				</li>
-                <li style = {{ background: "#910A09", opacity: "0.7" }} className="nav-item">
-                    <Link to = "/home"><a className="nav-link" href="#">Welcome! {username}
-                        <span className="sr-only">(current)</span>
-                    </a>
+				<li className="nav-item">
+                    <Link to = "/home">
+						<button onClick = {logout} className="nav-link btn btn-sm btn-primary p-2"><i className = "fa fa-sign-out-alt" />
+                        	<span className="ml-2">Logout</span>
+                        </button>
                     </Link>
 				</li>
+				
+                
 				
 				
 			</ul>

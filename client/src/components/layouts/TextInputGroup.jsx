@@ -27,6 +27,7 @@ export default function TextInputGroup({
             value = {value}
             onChange = {onChange}
             error = {error}
+            
             />
         { error && (
                 <div className="invalid-feedback">{error}</div>
@@ -39,7 +40,7 @@ export default function TextInputGroup({
 
 TextInputGroup.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired || PropTypes.number.isRequired,
     placeholder: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,

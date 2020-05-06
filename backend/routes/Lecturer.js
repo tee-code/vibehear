@@ -11,7 +11,7 @@ const {
 const type = "Lecturer";
 //POST lecturers
 const postLecturer = (request,response) => {
-    const body = ['firstName','lastName','otherName','email','username','password','phoneNumber','lecturerID','department','faculty'];
+    const body = ['firstName','lastName','otherName','email','username','password','phoneNumber','department','faculty'];
     postUser(request,response,body,type);
 }
 
@@ -27,7 +27,7 @@ const getLecturerByID = (request,response) => {
 
 // PATCH a Lecturer by ID
 const patchLecturerByID = (request,response) => {
-    const data = ['firstName','lastName','otherName','email','username','password','phoneNumber','matricNumber','department','faculty','level'];
+    const data = ['firstName','lastName','otherName','email','username','password','phoneNumber','department','faculty'];
     
     const body = _.pick(request.body,data);
     

@@ -3,10 +3,11 @@ import "./Login.css"
 import Header from "../layouts/Header"
 import Footer from "../layouts/Footer"
 import TextInputGroup from "../layouts/TextInputGroup"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import axios from 'axios'
 import { BASE_URL } from '../../Config'
 import { Consumer } from '../../Context';
+import Loader from '../Loader/Loader';
 
 export default class Login extends Component {
 
@@ -22,27 +23,38 @@ export default class Login extends Component {
 
   onChangeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value} )
+    
   }
 
   
   clearAlert = () => {
     setTimeout(()=>{
         this.setState({
-            registerationFailed: false
+            loginFailed: false
         })
+        window.document.querySelector("#loader").style.display = "none";
     },5000)
   }
 
   login = async (user,bodyMessage, dispatch) => {
-
+    
     try {
         const res = await axios.post(`${BASE_URL}/login/${user}`, bodyMessage)
         this.setState({ loginFailed: false, data: res.data })
         const { userType } = this.state;
+        
         const action = { type: "LOGIN_USER", payload: { data: res.data, userType } }
         dispatch(action)
-
+        
+        if(user.trim() === "Lecturer"){
+            
+            return (<Redirect to = "/lecturer" />)
+        }else{
+            
+            return (<Redirect to = "/student" />)
+        }
     } catch (e) {
+        window.document.querySelector("#loader").style.display = "none";
         this.setState({ loginFailed: true, errorMessage: "Invalid Credentials" })
         this.clearAlert();
     }    
@@ -50,6 +62,7 @@ export default class Login extends Component {
 
   onSubmitHandler = (dispatch,e) => {
     e.preventDefault();
+    window.document.querySelector("#loader").style.display = "block";
     const { id, userType, email, password } = this.state;
     
     //check for empty fields
@@ -93,28 +106,41 @@ export default class Login extends Component {
 
     this.login(user,{ email, password }, dispatch)
     
-
-    //clear state
-    this.setState({
-        id: "",
-        email: "",
-        password: "",
-        userType: "",
-        error: {}
-    });
     
 }
   render() {
     const { email, password, errors } = this.state; 
 
+    if(localStorage.getItem('l-token')){
+        return (<Redirect to = "/lecturer" />);
+    }
+
+    if(localStorage.getItem('s-token')){
+        return (<Redirect to = "/student" />);
+    }
+
+    if(localStorage.getItem('a-token')){
+        return (<Redirect to = "/admin" />);
+    }
+
     return (
         <Consumer>
             {
                 (value) => {
-                    const { dispatch } = value;
+                    const { dispatch, LecturerLoggedIn, StudentLoggedIn } = value;
+                    
+                    if(StudentLoggedIn){
+                        return (<Redirect to = "/student" />)
+                    }
+
+                    if(LecturerLoggedIn){
+                        return (<Redirect to = "/lecturer" />)
+                    }
+
                     return(
                         <>
-                            <Header branding = "ibeHear" />
+                            <Header branding = "ibeHear" active = "login" />
+                            <Loader />
                                 <div className = "container col-md-6 text-white">
                                 {
                                       this.state.loginFailed &&
@@ -133,8 +159,9 @@ export default class Login extends Component {
                                             onChange = {this.onChangeHandler}
                                             name = "userType"
                                             className="custom-select" id="inputGroupSelect01">
-                                                <option value="2">Lecturer</option>
-                                                <option  defaultValue="3">Student</option>
+                                                <option value="">Select user</option>
+                                                <option value="1">Lecturer</option>
+                                                <option  value="2">Student</option>
                                         </select>
                                         <br /><br />
                                         <TextInputGroup 

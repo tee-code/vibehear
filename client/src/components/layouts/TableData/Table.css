@@ -1,0 +1,26 @@
+table.myTable {
+    position: relative;
+    text-align: center;
+    background: white;
+    color: #002451;
+    font-weight: 600;
+}
+
+table.myTable thead th {
+    background: #6A0E3B;
+    color: white;
+}
+
+.actions i {
+    cursor: pointer;
+}
+
+#deleteError {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+i.icons {
+    color: #002451;
+}

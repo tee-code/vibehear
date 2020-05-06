@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios'
 import { BASE_URL } from '../../Config';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader'
 
 
 export default class Register extends Component {
@@ -21,7 +22,8 @@ export default class Register extends Component {
       password: "",
       registerationFailed: false,
       isRegistered: false,
-      errors: {}
+      errors: {},
+      errorMessage: ""
   }
 
   redirect = () => {
@@ -31,6 +33,7 @@ export default class Register extends Component {
   }
 
   onChangeHandler = (e) => {
+    
     this.setState({ [e.target.name]: e.target.value})
   }
 
@@ -39,18 +42,21 @@ export default class Register extends Component {
         this.setState({
             registerationFailed: false
         })
+        window.document.querySelector("#loader").style.display = "none";
     },5000)
   }
 
   postUser = async (user,bodyMessage) => {
-
+    
     try {
         const res = await axios.post(`${BASE_URL}/${user}`, bodyMessage)
-        
+        console.log(res);
         this.setState({isRegistered: true})
     } catch (error) {
-        this.setState({ registerationFailed: true })
+        console.log(error);
+        this.setState({ registerationFailed: true, errorMessage: error.errmsg })
         this.clearAlert();
+
     }
     
  }
@@ -58,8 +64,10 @@ export default class Register extends Component {
   onSubmitHandler = (dispatch,e) => {
 
     e.preventDefault();
+    window.document.querySelector("#loader").style.display = "block";
     
     const { username, matric, email, password, userType } = this.state;
+    
 
     
     //check for empty fields
@@ -96,7 +104,7 @@ export default class Register extends Component {
     }
 
 
-    if(matric === ''){
+    if(matric === '' && userType === "2"){
         this.setState({
             errors: {
                 matric: "Matric Number is required!!!"
@@ -124,20 +132,33 @@ export default class Register extends Component {
         bodyMessage = {
             email,
             password,
-            username
+            username,
+            firstName: "",
+            lastName: "",
+            otherName: "",
+            phoneNumber: "",
+            department: "",
+            faculty: ""
         }
     }else{
+        
         user = "students"
         bodyMessage = {
             email,
             password,
+            firstName: "",
+            lastName: "",
+            otherName: "",
+            phoneNumber: "",
+            department: "",
+            faculty: "",
             matricNumber: matric
         }
     }
 
     this.postUser(user, bodyMessage)
 
-
+    
     //clear state
     this.setState({
         id: "",
@@ -167,13 +188,14 @@ export default class Register extends Component {
                     return (
                         <>
                           {this.redirect()}  
-                          <Header branding = "ibeHear" />
+                          <Header branding = "ibeHear" active = "register"/>
+                          <Loader />
                               <div className = "container col-md-6 text-white">
                                   {
                                       this.state.registerationFailed &&
                                       (
                                         <div 
-                                        className = "p-1 text-center bg-danger"><strong>Registration Failed</strong></div>
+                                        className = "p-1 text-center bg-danger"><strong>Uable ot register!!!</strong></div>
                                       )
                                   }
                                   
@@ -186,8 +208,9 @@ export default class Register extends Component {
                                         onChange = {this.onChangeHandler}
                                         name = "userType"
                                         className="custom-select" id="inputGroupSelect01">
+                                            <option value="">select user</option>
                                           <option value="1">Lecturer</option>
-                                          <option  defaultValue="2">Student</option>
+                                          <option  value="2">Student</option>
                                       </select>
                                        <br /><br />
                                       <TextInputGroup 

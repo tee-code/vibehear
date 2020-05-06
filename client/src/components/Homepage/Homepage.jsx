@@ -10,7 +10,7 @@ export default function Homepage() {
             <div className="app-card card border-0 shadow my-5">
                 <div className="app-card-body card-body text-center p-4 text-white">
                     
-                    <span style = {{ fontSize: "55px", fontWeight: "bolder", fontFamily: "Segoe UI" }}>VIBEHEAR</span>
+                    <span className = "app-head">VIBEHEAR</span>
                     
                     <p 
                       style = {{ fontSize: "30px", fontWeight: "bold", fontFamily: "Segoe UI" }}
@@ -52,7 +52,7 @@ export default function Homepage() {
                   </div>
                   <br/><br/>
                     <Link to = "/register"><button
-                    style = {{ background: "red", opacity: "0.9" }} 
+                    style = {{ background: "red", opacity: "0.7" }}
                     className="btn btn-lg bg-teal text-white"
                     
                     >Register</button></Link>

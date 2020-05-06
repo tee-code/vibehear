@@ -1,5 +1,119 @@
-.messageArea {
+.course-info {
+    background: #f1f1f1;
+    height: 8%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+.course-info p {
+    padding: 10px;
+    color: 002451;
+}
+
+.course-info .course-title {
+    flex: 1;
+}
+
+.course-info .course-code {
+    flex: 1;
+}
+
+.course-info .lecturer-in-charge {
+    flex: 1;
+}
+
+.messagesPanel {
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    position: relative;
+    margin-top: -55px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.messages {
     background: white;
-    width: 80%;
-    height: 500px;
+    width: 100%;
+    height: 84%;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+    font-weight: 200;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+}
+
+button.receiver-logo {
+    background-color: #001126;
+    border-radius: 100%;
+    border: none;
+    color: white;
+    margin-left: 5px;
+    font-style: italic;
+    float: right;
+}
+
+small.receiverName {
+    float: right;
+    margin-right: 3px;
+    margin-top: -5px;
+    font-style: italic;
+}
+
+button.sender-logo {
+    background-color: #4E2C9E;
+    border-radius: 100%;
+    border: none;
+    color: white;
+    margin-right: 5px;
+    font-style: italic;
+}
+
+.words {
+    min-width: 100px;
+    max-width: 300px;
+    margin: 5px auto;
+    background: #001126;
+    border-radius: 20px;
+    color: black;
+    padding: 5px;
+    color: #f3f3f3;
+    margin-left: 10px;
+    font-size: 16px;
+    word-wrap: break-word;
+    word-break: keep-all;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    float: left;
+}
+
+.words-receiver {
+    background: #630B39;
+    padding: 5px 10px;
+    float: right;
+    margin-right: 10px;
+}
+
+small.studentName {
+    float: right;
+    margin-top: -2px;
+    margin-right: 12px;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.clear {
+    clear: both;
+}
+
+.chatArea {
+    background: white;
+    height: 8%;
 }

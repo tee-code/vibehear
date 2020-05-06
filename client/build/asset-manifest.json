@@ -1,26 +1,26 @@
 {
-  "files": {
-    "main.css": "/static/css/main.1db9654b.chunk.css",
-    "main.js": "/static/js/main.7492bb5e.chunk.js",
-    "main.js.map": "/static/js/main.7492bb5e.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.977c9355.js",
-    "runtime-main.js.map": "/static/js/runtime-main.977c9355.js.map",
-    "static/css/2.79f8f79b.chunk.css": "/static/css/2.79f8f79b.chunk.css",
-    "static/js/2.fb0be21a.chunk.js": "/static/js/2.fb0be21a.chunk.js",
-    "static/js/2.fb0be21a.chunk.js.map": "/static/js/2.fb0be21a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.8e26ea314f79fa6adfa61defa772a459.js": "/precache-manifest.8e26ea314f79fa6adfa61defa772a459.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.79f8f79b.chunk.css.map": "/static/css/2.79f8f79b.chunk.css.map",
-    "static/css/main.1db9654b.chunk.css.map": "/static/css/main.1db9654b.chunk.css.map",
-    "static/media/Login.css": "/static/media/background.014161d5.jpg",
-    "static/media/all.css": "/static/media/fa-solid-900.c2801fb4.svg"
-  },
-  "entrypoints": [
-    "static/js/runtime-main.977c9355.js",
-    "static/css/2.79f8f79b.chunk.css",
-    "static/js/2.fb0be21a.chunk.js",
-    "static/css/main.1db9654b.chunk.css",
-    "static/js/main.7492bb5e.chunk.js"
-  ]
+    "files": {
+        "main.css": "/static/css/main.1db9654b.chunk.css",
+        "main.js": "/static/js/main.7492bb5e.chunk.js",
+        "main.js.map": "/static/js/main.7492bb5e.chunk.js.map",
+        "runtime-main.js": "/static/js/runtime-main.977c9355.js",
+        "runtime-main.js.map": "/static/js/runtime-main.977c9355.js.map",
+        "static/css/2.79f8f79b.chunk.css": "/static/css/2.79f8f79b.chunk.css",
+        "static/js/2.fb0be21a.chunk.js": "/static/js/2.fb0be21a.chunk.js",
+        "static/js/2.fb0be21a.chunk.js.map": "/static/js/2.fb0be21a.chunk.js.map",
+        "index.html": "/index.html",
+        "precache-manifest.8e26ea314f79fa6adfa61defa772a459.js": "/precache-manifest.8e26ea314f79fa6adfa61defa772a459.js",
+        "service-worker.js": "/service-worker.js",
+        "static/css/2.79f8f79b.chunk.css.map": "/static/css/2.79f8f79b.chunk.css.map",
+        "static/css/main.1db9654b.chunk.css.map": "/static/css/main.1db9654b.chunk.css.map",
+        "static/media/Login.css": "/static/media/background.014161d5.jpg",
+        "static/media/all.css": "/static/media/fa-solid-900.c2801fb4.svg"
+    },
+    "entrypoints": [
+        "static/js/runtime-main.977c9355.js",
+        "static/css/2.79f8f79b.chunk.css",
+        "static/js/2.fb0be21a.chunk.js",
+        "static/css/main.1db9654b.chunk.css",
+        "static/js/main.7492bb5e.chunk.js"
+    ]
 }

@@ -3,32 +3,22 @@ const Schema = mongoose.Schema;
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
 const _ = require('lodash');
+const bcrypt = require('bcryptjs')
 
 //Lecturer schema
 const LecturerSchema = new Schema({
     firstName: {
         type: String,
-        minlength: 1,
-        trim: true,
-        required: true
+        trim: true
     },
     lastName: {
         type: String,
-        minlength: 1,
-        trim: true,
-        required: true
+        
+        trim: true
     },
     otherName: {
         type: String,
-        minlength: 1,
         trim: true
-    },
-    lecturerID: {
-        type: String,
-        minlength: 1,
-        trim: true,
-        required: true,
-        unique: true
     },
     email: {
         type: String,
@@ -43,15 +33,11 @@ const LecturerSchema = new Schema({
     },
     department: {
         type: String,
-        trim: true,
-        minlength: 1,
-        required: true,
+        trim: true
     },
     faculty: {
         type: String,
-        trim: true,
-        minlength: 1,
-        required: true
+        trim: true
     },
     password: {
         type: String,
@@ -68,9 +54,7 @@ const LecturerSchema = new Schema({
     },
     phoneNumber: {
         type: String,
-        trim: true,
-        minlength: 10,
-        required: true,
+        trim: true
     },
     dateJoined: {
         type: String,
@@ -94,7 +78,7 @@ const LecturerSchema = new Schema({
 LecturerSchema.methods.toJSON = function(){
     const Lecturer = this;
     const LecturerObject = Lecturer.toObject();
-    return _.pick(LecturerObject,['_id','dateJoined','username','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','lecturerID','tokens']);
+    return _.pick(LecturerObject,['_id','dateJoined','username','firstName','lastName','otherName','email','phoneNumber','password','department','faculty','tokens']);
 }
 
 //method to generate token using jsonwebtoken library

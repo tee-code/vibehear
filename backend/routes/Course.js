@@ -5,17 +5,23 @@ const {
     getUserByID, 
     patchUserByID,
     deleteAllUsers,
-    deleteUserByID 
+    deleteUserByID,
+    getCoursesDetails
 } = require('../controllers/routes');
 
 const type = "Course";
 //POST Courses
 const postCourse = (request,response) => {
-    const body = ['title','unit','code','department','faculty'];
+    const body = ['lecturerID','level','title','unit','code','department','faculty','dateAdded','addedBy','lecturer'];
     postUser(request,response,body,type);
 }
 
 //GET all Courses
+const getCoursesWithLecturerDetails = (request,response) => {    
+    getCoursesDetails(request,response,type);
+}
+
+//GET all Courses with lecturer details
 const getCourses = (request,response) => {    
     getUsers(request,response,type);
 }
@@ -27,7 +33,7 @@ const getCourseByID = (request,response) => {
 
 // PATCH a Course by ID
 const patchCourseByID = (request,response) => {
-    const data = ['firstName','lastName','otherName','email','username','password','phoneNumber','matricNumber','department','faculty','level'];
+    const data = ['title','unit','code','department','faculty','lecturerID'];
     
     const body = _.pick(request.body,data);
     
@@ -53,4 +59,4 @@ const deleteCourseByID = (request,response) => {
 
 
 
-module.exports = { postCourse, getCourseByID, getCourses, patchCourseByID, deleteAllCourses, deleteCourseByID,}
+module.exports = { postCourse, getCourseByID, getCourses, patchCourseByID, deleteAllCourses, deleteCourseByID, getCoursesWithLecturerDetails}

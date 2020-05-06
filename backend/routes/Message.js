@@ -2,6 +2,7 @@ const _ = require('lodash');
 const { 
     postUser, 
     getUsers, 
+    getMessagesDetail,
     getUserByID, 
     patchUserByID,
     deleteAllUsers,
@@ -11,13 +12,13 @@ const {
 const type = "Message";
 //POST Messages
 const postMessage = (request,response) => {
-    const body = ['senderID','receiverID','message'];
+    const body = ['senderID','receiverID','message','sender','senderType'];
     postUser(request,response,body,type);
 }
 
 //GET all Messages
 const getMessages = (request,response) => {    
-    getUsers(request,response,type);
+    getMessagesDetail(request,response,type);
 }
 
 //GET a Message by ID

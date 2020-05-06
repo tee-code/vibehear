@@ -1,5 +1,5 @@
 {
-    "name": "backend",
+    "name": "VibeHear backend script",
     "version": "1.0.0",
     "description": "api",
     "main": "index.js",
@@ -9,7 +9,7 @@
         "test": "",
         "test-watch": ""
     },
-    "author": "Odekunle Oluwatobi Alao | TheAnonymousDeveloper",
+    "author": "Odekunle Oluwatobi Alao",
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",

@@ -10,7 +10,7 @@ export default class IndexPage extends Component {
     return (
       <>
         <div>
-          <Header branding = "ibeHear" />
+          <Header branding = "ibeHear" active = "home" />
           <div className = "container">
             <Homepage />
           </div>

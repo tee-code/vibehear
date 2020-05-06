@@ -11,7 +11,7 @@ const {
 const type = "Notification";
 //POST Notifications
 const postNotification = (request,response) => {
-    const body = ['type','receiverID','message'];
+    const body = ['type','receiverType','senderID','senderType','receiverID','message','dateAdded','status'];
     postUser(request,response,body,type);
 }
 
